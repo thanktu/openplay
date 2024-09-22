@@ -1,0 +1,285 @@
+@import "node_modules/ol/ol.css";
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+}
+
+.cls {
+  display: block;
+  clear: both;
+  margin-top: 10px;
+}
+.head {
+  display: block;
+  margin-bottom: 5px;
+}
+
+#map {
+  width: 100%;
+  height: 100vh;
+  margin: auto;
+}
+
+.ol-popup {
+  position: absolute;
+  background-color: white;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px solid #cccccc;
+  bottom: 12px;
+  left: -50px;
+  min-width: 280px;
+}
+.ol-popup:after,
+.ol-popup:before {
+  top: 100%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+.ol-popup:after {
+  border-top-color: white;
+  border-width: 10px;
+  left: 48px;
+  margin-left: -10px;
+}
+.ol-popup:before {
+  border-top-color: #cccccc;
+  border-width: 11px;
+  left: 48px;
+  margin-left: -11px;
+}
+.ol-popup-closer {
+  text-decoration: none;
+  position: absolute;
+  top: 2px;
+  right: 8px;
+}
+.ol-popup-closer:after {
+  content: "✖";
+}
+
+/* KML */
+#info {
+  position: absolute;
+  height: 1px;
+  width: 1px;
+  z-index: 100;
+}
+.tooltip.in {
+  opacity: 1;
+}
+.tooltip.top .tooltip-arrow {
+  border-top-color: white;
+}
+.tooltip-inner {
+  border: 2px solid white;
+}
+
+/* #region */
+/* .cluster-label {
+  background-color: #00aaff;
+  border-radius: 5px;
+  color: white;
+  font-size: 14px;
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  line-height: 30px;
+  position: relative;
+  border: 3px solid #fff;
+  padding: 20px 10px;
+  width: auto;
+}
+
+.cluster-label:after,
+.cluster-label:before {
+  top: 100%;
+  left: 50%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+
+.cluster-label:after {
+  border-width: 10px;
+  margin-left: -10px;
+  border-top-color: #00aaff;
+}
+
+.cluster-label:before {
+  border-color: rgba(12, 245, 167, 0);
+  border-width: 14px;
+  border-top-color: #fff;
+  margin-left: -14px;
+} */
+
+/* #endregion */
+
+/* --------------------------- xxx ---------------------------  */
+.cluster-label {
+  background-color: #00aaff;
+  color: white;
+  font-size: 14px;
+  min-width: 220px;
+  width: auto;
+  height: auto;
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  line-height: 30px;
+  position: relative;
+  padding: 10px 0px;
+  border: 4px solid #fff;
+  cursor: pointer;
+}
+
+.cluster-label:after,
+.cluster-label:before {
+  top: 100%;
+  left: 50%;
+  border: solid transparent;
+  content: " ";
+  /* height: 0;
+  width: 0; */
+  position: absolute;
+  pointer-events: none;
+}
+
+.cluster-label:after {
+  border-width: 10px;
+  margin-left: -10px;
+  border-top-color: #00aaff;
+}
+
+.cluster-label:before {
+  border-color: rgba(12, 245, 167, 0);
+
+  border-top-color: #fff;
+  margin-left: -16px;
+  border-width: 16px;
+}
+
+.detail-label {
+  background-color: #008cba;
+  border-radius: 5px;
+  color: white;
+  padding: 5px;
+}
+
+.overlay {
+  display: block;
+  position: relative;
+  pointer-events: auto; /* The overlay doesn't interfere with map zoom/pan */
+}
+
+/*  */
+.boxCanvasLeft {
+  width: 45%;
+  height: auto;
+  float: left;
+  text-align: center;
+  font-size: 40px;
+  font-weight: 700;
+  padding: auto 20px;
+  box-sizing: border-box;
+  display: block;
+  align-items: center;
+  font-family: sans-serif;
+
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.boxCanvasRight {
+  width: 55%;
+  height: auto;
+  float: right;
+  overflow: hidden;
+  padding: auto 20px;
+  box-sizing: border-box;
+
+  font-size: 12px;
+  font-weight: 400;
+  border-left: 1.4px solid #ffffff38;
+}
+
+.itemCanvasRight {
+  display: flow-root;
+  line-height: 18px;
+  padding: 1px 10px;
+  box-sizing: border-box;
+}
+
+.itemCanvasTextLeft {
+  float: left;
+  font-family: monospace;
+}
+
+.itemCanvasTextRight {
+  float: right;
+  font-weight: 900;
+}
+
+/* DETAIL DEVICE */
+.detail-label {
+  background-color: #e16c19;
+  color: white;
+  font-size: 14px;
+  height: 32px;
+  width: 32px;
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  line-height: 32px;
+  position: relative;
+  border: 3px solid #fff;
+  cursor: pointer;
+}
+
+.detail-label:after,
+.detail-label:before {
+  top: 100%;
+  left: 50%;
+  border: solid transparent;
+  content: " ";
+  /* height: 0;
+  width: 0; */
+  position: absolute;
+  pointer-events: none;
+}
+
+.detail-label:after {
+  border-width: 2px;
+  margin-left: -2px;
+  border-top-color: #e16c19;
+}
+
+.detail-label:before {
+  border-color: rgba(12, 245, 167, 0);
+
+  border-top-color: #fff;
+  margin-left: -8px;
+  border-width: 8px;
+}
+
+/* POPUP */
+
+.popup {
+  background: red;
+  padding: 20px;
+}
